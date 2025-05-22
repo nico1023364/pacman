@@ -25,6 +25,7 @@ h1{
     .dot{
         background-color: black;
         position: relative;
+        z-index: 1;
 
         &::after{
             content: "";
@@ -39,13 +40,14 @@ h1{
     }
 }
 
-.pacman{
+.pacman {
     background-image: url(/img/Pacman.svg);
-    width: 30px ;
+    width: 30px;
     height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    transition: all .1s ease-in-out;
 }
 
 .ghost{
@@ -55,6 +57,20 @@ h1{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 2;
+    transition: all .1s ease-in-out;
 
-    background-image: url(/img/OIP.jpg);
+    &.red {
+        background-image: url(/img/ghost-red.png);
+    }
+    &.pink {
+        background-image: url(/img/ghost-pink.png);
+    }
 }
+
+.pacman.left { transform: rotate(180deg); }
+.pacman.right { transform: rotate(0deg); }
+.pacman.up { transform: rotate(-90deg); }
+.pacman.down { transform: rotate(90deg); }
+
+
