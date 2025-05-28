@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function activatePowerMode() {
         powerMode = true;
         document.body.classList.add("power-mode");
-
+        powerUp.play();
         ghosts.forEach(ghost => {
             ghost.isVulnerable = true;
             ghost.draw();
