@@ -1,0 +1,76 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 3px;
+    justify-content: center;
+    margin: 0 auto;
+
+    .wall{
+        background-color: blue;
+        border: 2px solid  rgb(7, 7, 201);
+    }
+
+    .dot{
+        background-color: black;
+        position: relative;
+        z-index: 1;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
+}
+
+.pacman {
+    background-image: url(/img/Pacman.svg);
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .1s ease-in-out;
+}
+
+.ghost{
+    position: relative;
+    width: 30px ;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    transition: all .1s ease-in-out;
+
+    &.red {
+        background-image: url(/img/ghost-red.png);
+    }
+    &.pink {
+        background-image: url(/img/ghost-pink.png);
+    }
+}
+
+.pacman.left { transform: rotate(180deg); }
+.pacman.right { transform: rotate(0deg); }
+.pacman.up { transform: rotate(-90deg); }
+.pacman.down { transform: rotate(90deg); }
+
+

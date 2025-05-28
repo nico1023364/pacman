@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(15, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 3px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.grid .wall {
+  background-color: blue;
+  border: 2px solid rgb(7, 7, 201);
+}
+.grid .dot {
+  background-color: black;
+  position: relative;
+  z-index: 1;
+}
+.grid .dot::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.pacman {
+  background-image: url(/img/Pacman.svg);
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.ghost {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 9999;
+  transition: all 0.1s ease-in-out;
+}
+.ghost.red {
+  background-image: url(/img/ghost-red.png);
+}
+.ghost.pink {
+  background-image: url(/img/ghost-pink.png);
+}
+
+.pacman.left {
+  transform: rotate(180deg);
+}
+
+.pacman.right {
+  transform: rotate(0deg);
+}
+
+.pacman.up {
+  transform: rotate(-90deg);
+}
+
+.pacman.down {
+  transform: rotate(90deg);
+}/*# sourceMappingURL=styles.css.map */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(15, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 1px;
+  width: fit-content;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+}
+
+.wall {
+  background-color: blue;
+}
+.ghost.vulnerable {
+  background-color: rgb(208, 255, 0) !important;
+  opacity: 0.7;
+}
+
+.dot::before,
+.pacman::before,
+.ghost::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot::before {
+  width: 6px;
+  height: 6px;
+  background: rgb(236, 236, 236);
+  border-radius: 50%;
+  z-index: 1;
+}
+.power-pellet {
+  background-color: orange;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin: auto;
+  position: relative;
+  top: 4px;
+  z-index: -1;
+}
+
+body.power-mode .ghost::before {
+  background: blue;
+}
